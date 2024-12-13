@@ -6,7 +6,7 @@ def plot_data(data):
     plt.plot(data["Date"], data["Close"], label="Close Price", color="blue")
     plt.plot(data["Date"], data["Moving Average"], label="Moving Average", color="red")
     plt.xlabel("Data")
-    plt.ylable("Price")
+    plt.ylabel("Price")
     plt.title("Stock price, moving average")
     plt.legend()
     plt.grid()
