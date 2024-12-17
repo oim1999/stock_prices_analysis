@@ -82,3 +82,41 @@ def plot_headline_length(data):
     plt.xlabel("Headline Length")
     plt.ylabel("Frequency")
     plt.show()
+
+def plot_top_publishers(publisher_counts):
+    top_publishers = publisher_counts.head(10)  # Show top 10 publishers
+    top_publishers.plot(kind='bar', color='lightcoral', figsize=(10, 6))
+    plt.title("Top 10 Publishers by Article Count")
+    plt.xlabel("Publisher")
+    plt.ylabel("Number of Articles")
+    plt.show()
+
+
+
+
+# Visualize the top keywords
+def plot_top_keywords(word_frequencies):
+    word_frequencies.head(10).plot(kind='barh', color='orange', figsize=(8, 6))
+    plt.title("Top 10 Keywords in Headlines")
+    plt.xlabel("Frequency")
+    plt.show()
+
+# Plot publication frequency over time
+def plot_publication_frequency(daily_publications):
+    plt.figure(figsize=(12, 6))
+    daily_publications.plot(kind='line', color='blue', marker='o')
+    plt.title("Daily Publication Frequency")
+    plt.xlabel("Date")
+    plt.ylabel("Number of Articles")
+    plt.grid(True)
+    plt.show()
+
+# Plot the distribution of publishing times
+def plot_publishing_times(hourly_publications):
+    plt.figure(figsize=(12, 6))
+    hourly_publications.plot(kind='bar', color='orange')
+    plt.title("Articles Published by Hour of Day")
+    plt.xlabel("Hour of Day (24-hour format)")
+    plt.ylabel("Number of Articles")
+    plt.grid(axis='y')
+    plt.show()

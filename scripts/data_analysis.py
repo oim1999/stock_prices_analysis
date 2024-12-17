@@ -29,3 +29,11 @@ def classify_sentiment(score):
     else:
         return "Neutral"
 
+# Function to handle mixed datetime formats
+def parse_mixed_dates(date):
+    try:
+        # Attempt to parse with timezone
+        return pd.to_datetime(date, utc=True)
+    except Exception:
+        # Localize timezone-less dates to UTC
+        return pd.to_datetime(date).tz_localize('UTC')
