@@ -29,19 +29,11 @@ def classify_sentiment(score):
     else:
         return "Neutral"
 
-""" data['sentiment_category'] = data['sentiment'].apply(classify_sentiment)
-
-# Group by Stock Symbol to get average sentiment per stock
-stock_sentiment = data.groupby('stock')['sentiment'].mean().reset_index()
-stock_sentiment = stock_sentiment.rename(columns={'sentiment': 'average_sentiment'})
-
-# Display Results
-print("\nSentiment Analysis Results:")
-print(data[['headline', 'stock', 'sentiment', 'sentiment_category']].head())
-
-print("\nAverage Sentiment per Stock:")
-print(stock_sentiment)
-
-# Save the Results
-data.to_csv("financial_news_with_sentiment.csv", index=False)
-print("Sentiment analysis results saved to 'financial_news_with_sentiment.csv'") """
+# Function to handle mixed datetime formats
+def parse_mixed_dates(date):
+    try:
+        # Attempt to parse with timezone
+        return pd.to_datetime(date, utc=True)
+    except Exception:
+        # Localize timezone-less dates to UTC
+        return pd.to_datetime(date).tz_localize('UTC')
