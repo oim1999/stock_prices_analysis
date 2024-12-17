@@ -1,0 +1,6 @@
+.myenv
+raw_analyst_ratings.csv
+yfinance_data
+notebook/financial_analysis.ipynb
+scripts/fanalyzer.py
+
